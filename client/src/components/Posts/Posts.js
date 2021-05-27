@@ -1,9 +1,10 @@
 import React from 'react';
+import Post from './PostCard/PostCard.js'
 
 const Posts=()=>{
     return(
-        <div>
-            <h1>App</h1>
+        <div className=" bg-blue-500 md:bg-blue-500">
+            <h1>Merhaba</h1>
         </div>
     )
 }

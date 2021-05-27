@@ -2,8 +2,8 @@ import React from 'react';
 
 const PostCard=()=>{
     return(
-        <div>
-            <h1>App</h1>
+        <div className=" bg-blue-500 md:bg-yellow-500">
+            <h1>Merhaba</h1>
         </div>
     )
 }
