@@ -4,7 +4,7 @@ import FileBase from 'react-file-base64';
 import {useDispatch} from 'react-redux';
 import {createPost} from '../../actions/posts'
 
-const Form = () => {
+const Form = ({currentId,setCurrentId}) => {
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
@@ -27,7 +27,7 @@ const Form = () => {
             name="creator"
             id="title"
             type="text"
-            placeholder="name"
+            placeholder="Cretor"
             className="px-2 w-3/4 border-2 rounded-sm text-black placeholder-blue-300 border-blue-400 mb-2"
             value={postData.creator}
             onChange={(e) =>
@@ -40,7 +40,7 @@ const Form = () => {
             name="title"
             id="title"
             type="text"
-            placeholder="name"
+            placeholder="Title"
             className="px-2 w-3/4 border-2 rounded-sm text-black placeholder-blue-300 border-blue-400 mb-2"
             value={postData.title}
             onChange={(e) =>
@@ -53,7 +53,7 @@ const Form = () => {
             name="message"
             id="title"
             type="text"
-            placeholder="name"
+            placeholder="Message"
             className="px-2 w-3/4 border-2 rounded-sm text-black placeholder-blue-300 border-blue-400 mb-2"
             value={postData.message}
             onChange={(e) =>
@@ -66,7 +66,7 @@ const Form = () => {
             name="tags"
             id="title"
             type="text"
-            placeholder="name"
+            placeholder="Tags"
             className="px-2 w-3/4 border-2 rounded-sm text-black placeholder-blue-300 border-blue-400 mb-2"
             value={postData.tags}
             onChange={(e) => setPostData({ ...postData, tags: e.target.value })}

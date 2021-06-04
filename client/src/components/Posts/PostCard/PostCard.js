@@ -1,33 +1,32 @@
 import React from "react";
 
-const PostCard = () => {
+const PostCard = ({post,setCurrentId}) => {
   return (
     <>
-      <div className="flex flex-col bg-white-300  relative m-2 rounded-2x1 shadow rounded-sm bg-gradient-to-l from-white-200 to-white-100 ">
+      <div className="flex flex-col bg-white-300 h-full relative m-2 rounded-2x1 shadow rounded-sm bg-gradient-to-l from-white-200 to-white-100 ">
         <div className=" rounded overflow-hidden shadow-lg w-full">
-          <img src={"./img1.JPG"} className="w-full  " />
+          <img src={post.selectedFile} className="w-full  " />
           <div className="px-2 py-2">
-            <div className="font-bold text-xl ">Closer</div>
+            <div className="font-bold text-xl ">{post.title}</div>
           </div>
         </div>
         <div className=" absolute inset-x-0 flex flex-row justify-between">
           <div className="rounded-sm ">
             <p className="py-1 font-mono . italic  md:font-extrabold text-gray-900 text-xs	 ">
-              GökçeAda-İmroz
+              {post.creator}
             </p>
             <p className="font-mono . md:font-bold text-red-800 text-xs	 ">
-              Bir Ağustos Gecesi
+             {post.tags}
             </p>
           </div>
           <div className="p-1 mx-3">
-            <p className="text-gray-200 font-bold">...</p>
+            <button className="text-gray-200 font-bold" >...</button>
           </div>
         </div>
         <div>
           <div className="bg-gradient-to-l from-red-200 to-white-100">
             <p className="text-center text-lg  ">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              {post.message}
             </p>
           </div>
           <div className="px-4 bg-orange-100 shadow-md md:container md:mx-auto rounded-lg border-solid border-4 border-light-blue-500	">
