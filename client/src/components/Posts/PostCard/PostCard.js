@@ -1,6 +1,9 @@
 import React from "react";
 import moment from "moment";
+import {useDispatch} from 'react-redux';
+import {deletePost} from '../../../actions/posts'
 const PostCard = ({ post, setCurrentId }) => {
+  const dispatch=useDispatch();
   return (
     <>
       <div className="flex flex-col bg-white-300 h-full relative m-2 rounded-2x1 shadow rounded-sm bg-gradient-to-l from-white-200 to-white-100 ">
@@ -54,7 +57,7 @@ const PostCard = ({ post, setCurrentId }) => {
                   />
                 </svg>
               </button>
-              <button className="bg-blue-400  py-2 px-4 rounded-lg ">
+              <button className="bg-blue-400  py-2 px-4 rounded-lg " onClick={()=>dispatch(deletePost(post._id))}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
