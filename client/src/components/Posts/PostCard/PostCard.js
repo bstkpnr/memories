@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import {useDispatch} from 'react-redux';
-import {deletePost} from '../../../actions/posts'
+import {deletePost,likePost} from '../../../actions/posts'
 const PostCard = ({ post, setCurrentId }) => {
   const dispatch=useDispatch();
   return (
@@ -40,10 +40,11 @@ const PostCard = ({ post, setCurrentId }) => {
           </div>
           <div className="px-4 bg-orange-100 shadow-md md:container md:mx-auto rounded-lg border-solid border-4 border-light-blue-500	">
             <div className=" flex justify-between">
-              <button
+              <button onClick={()=>dispatch(likePost(post._id))}
                 className="bg-red-300  py-2 px-4 rounded-lg  "
                
               >
+                {post.likeCount}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5"
