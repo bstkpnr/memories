@@ -1,6 +1,6 @@
 import * as api from "../api";
 
-//Action Creators
+// Action Creators
 
 export const getPosts = () => async (dispatch) => {
   try {
@@ -11,10 +11,22 @@ export const getPosts = () => async (dispatch) => {
     console.log(error.message);
   }
 };
+
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
+    console.log("çalışıyor velege");
     dispatch({ type: "CREATE", payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const updatePost = (id, post) => async (dispatch) => {
+  try {
+    const { data } = await api.updatePost(id, post);
+
+    dispatch({ type:'UPDATE', payload: data });
   } catch (error) {
     console.log(error.message);
   }

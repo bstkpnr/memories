@@ -1,37 +1,46 @@
 import React from "react";
-
-const PostCard = ({post,setCurrentId}) => {
+import moment from "moment";
+const PostCard = ({ post, setCurrentId }) => {
   return (
     <>
       <div className="flex flex-col bg-white-300 h-full relative m-2 rounded-2x1 shadow rounded-sm bg-gradient-to-l from-white-200 to-white-100 ">
         <div className=" rounded overflow-hidden shadow-lg w-full">
-          <img src={post.selectedFile} className="w-full  " />
+          <img src={post.selectedFile} className="w-full" alt={post.title} />
           <div className="px-2 py-2">
-            <div className="font-bold text-xl ">{post.title}</div>
+            <div className="font-bold text-xl ">
+              <p>{post.title}</p>
+              <p>{moment(post.createdAt).fromNow()}</p>
+            </div>
           </div>
         </div>
         <div className=" absolute inset-x-0 flex flex-row justify-between">
           <div className="rounded-sm ">
-            <p className="py-1 font-mono . italic  md:font-extrabold text-gray-900 text-xs	 ">
+            <p className="py-1 font-mono . italic  md:font-extrabold text-gray-900 text-xs">
               {post.creator}
             </p>
             <p className="font-mono . md:font-bold text-red-800 text-xs	 ">
-             {post.tags}
+              {post.tags.map((tag) => `#${tag}`)}
             </p>
           </div>
           <div className="p-1 mx-3">
-            <button className="text-gray-200 font-bold" >...</button>
+            <button
+              className="text-gray-200 font-bold"
+              onClick={() => setCurrentId(post._id)}
+            >
+              ...
+            </button>
           </div>
         </div>
         <div>
           <div className="bg-gradient-to-l from-red-200 to-white-100">
-            <p className="text-center text-lg  ">
-              {post.message}
-            </p>
+            <p className="text-center text-lg  ">{post.message}</p>
           </div>
           <div className="px-4 bg-orange-100 shadow-md md:container md:mx-auto rounded-lg border-solid border-4 border-light-blue-500	">
             <div className=" flex justify-between">
-              <button className="bg-red-300  py-2 px-4 rounded-lg  ">
+              <button
+                className="bg-red-300  py-2 px-4 rounded-lg  "
+               
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5"

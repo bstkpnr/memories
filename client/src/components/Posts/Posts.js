@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const Posts = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
-  console.log(posts);
+
   return !posts.length ? (
     <div className=" flex w-full flex-col md:flex-row flex-wrap  md:bg-white-300 text-3xl md:font-mono text-black-500 text-opacity-50 text-center overflow-ellipsis">
       <lottie-player
@@ -19,13 +19,7 @@ const Posts = ({ setCurrentId }) => {
     <div className=" flex w-full flex-col md:flex-row flex-wrap  md:bg-white-300 text-3xl md:font-mono text-black-500 text-opacity-50 text-center overflow-ellipsis">
       {posts.map((post) => (
         <div className="md:w-1/2 w-full " key={post._id}>
-          <Post
-            title={post.title}
-            message={post.message}
-            tags={post.tags}
-            creator={post.creator}
-            selectedFile={post.selectedFile}
-            post={post}
+          <Post post={post}
             setCurrentId={setCurrentId}
           />
         </div>
